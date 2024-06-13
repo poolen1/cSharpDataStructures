@@ -7,24 +7,26 @@ namespace cSharpDataStructures
 
         public List<T> Stack { get => _stack; set => _stack = value; }
 
-        public MyStack(int size)
+        public MyStack()
         {
-            Stack = new List<T>(size);
+            Stack = new List<T>();
         }
 
         public T ReadStack()
         {
-            return Stack[0];
+            return Stack[Stack.Count-1];
         }
 
         public T Pop() 
         { 
-            return Stack[Stack.Count - 1];
+            T popped = Stack[Stack.Count-1];
+            Stack.RemoveAt(Stack.Count - 1);
+            return popped;
         }
 
         public void Push(T item)
         {
-            Stack[Stack.Count - 1] = item;
+            Stack.Add(item);
         }
     }
 }
